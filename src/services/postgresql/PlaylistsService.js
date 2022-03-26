@@ -12,13 +12,9 @@ class PlaylistsService {
       values: [playlistId],
     };
 
-    try {
-      const result = await this._pool.query(query);
+    const result = await this._pool.query(query);
 
-      return mapGetPlaylistById(result.rows);
-    } catch (error) {
-      console.error(error);
-    }
+    return mapGetPlaylistById(result.rows);
   }
 }
 
